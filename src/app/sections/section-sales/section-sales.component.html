@@ -1,9 +1,9 @@
 <div class="section-container">
-    <div class="cards">
+    <div class="row-fluid cards">
         <div class="card-deck">
             <div class="card mb-3 shadow card-theme">
                 <div class="card-header card-header-theme">
-                    <h5>Daily Orders</h5>
+                    <h6>Daily Orders</h6>
                 </div>
                 <div class="card-body card-body-theme">
                     <app-bar-chart></app-bar-chart>
@@ -12,20 +12,30 @@
 
             <div class="card mb-3 shadow card-theme">
                 <div class="card-header card-header-theme">
-                    <h5>Orders by Customer</h5>
+                    <h6>Orders by Customer</h6>
                 </div>
                 <div class="card-body card-body-theme">
                     <app-pie-chart></app-pie-chart>
                 </div>
             </div>
-
             <div class="card mb-3 shadow card-theme">
                 <div class="card-header card-header-theme">
-                    <h5>Orders by State</h5>
+                    <h6>Orders by State</h6>
                 </div>
                 <div class="card-body card-body-theme">
                     <app-pie-chart></app-pie-chart>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid cards">
+        <div class="card shadow card-theme card-bottom">
+            <div class="card-header card-header theme">
+                <h6>Montly Sales byProduct</h6>
+            </div>
+            <div class="card-body">
+                <app-line-chart></app-line-chart>
             </div>
         </div>
     </div>
