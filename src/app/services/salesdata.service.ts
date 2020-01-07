@@ -7,8 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SalesDataService {
-  private _getOrders = "http://localhost:5000/api/orders";
-
+  private _getOrders = "https://localhost:5001/api/order";
 
   constructor(private _http: HttpClient) { }
   errorHandler(error: HttpErrorResponse){
@@ -17,8 +16,13 @@ export class SalesDataService {
   }
 
   getOrders(page, limit){
-    var link = this._getOrders+'/'+page+'/'+limit;
+    var link = this._getOrders+"/"+page+"/"+limit;
+    console.log(link);
     return this._http.get<any>(link).pipe(catchError(this.errorHandler));
+  }
+
+  getAllOrders(){
+    return this._http.get<any>(this._getOrders).pipe(catchError(this.errorHandler));
   }
 
 }

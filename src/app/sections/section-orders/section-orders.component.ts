@@ -18,11 +18,13 @@ export class SectionOrdersComponent implements OnInit {
   loading = false;
 
   ngOnInit() {
+    this.getOrders();
   }
 
-  getOrders(): void { 
+  getOrders() {
     this._salesData.getOrders(this.page, this.limit).subscribe(
       res => {
+        console.log(res['page']['data']);
         this.orders = res['page']['data'];
         this.total = res['page'].total;
         this.loading = false;

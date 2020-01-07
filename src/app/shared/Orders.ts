@@ -4,6 +4,6 @@ export interface Order{
     id: number;
     customer: Customer;
     total: number;
-    orderPlaced: Date;
-    orderFulfilled: Date;
+    placed: Date;
+    completed: Date;
 }

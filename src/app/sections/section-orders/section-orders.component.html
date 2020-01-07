@@ -13,12 +13,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of Orders">
+            <tr *ngFor="let order of orders">
                 <td> {{ order.id }} </td>
                 <td> {{ order.customer.name }} </td>
                 <td> {{ order.total }} </td>
-                <td> {{ order.orderPlaced | date: 'short' }} </td>
-                <td> {{ order.orderFulfilled | date: 'short' }} </td>
+                <td> {{ order.placed | date: 'short' }} </td>
+                <td> {{ order.completed | date: 'short' }} </td>
                 <td>
                     Status
                 </td>
