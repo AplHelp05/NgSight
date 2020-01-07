@@ -1,3 +1,4 @@
+import { SalesDataService } from './../../services/salesdata.service';
 import { Order } from './../../shared/Orders';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,33 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionOrdersComponent implements OnInit {
 
-  public  Orders: Order[] = [
-    {
-      id: 1, 
-      customer:{id:1, name:'Main St Bakery', email: 'mainst@bakery.com', state:'CO'},
-      total: 230,
-      orderPlaced: new Date(2017,12,3),
-      orderFulfilled: new Date(2017,12,3)
-    },
-    {
-      id: 3, 
-      customer:{id:1, name:'Main St Bakery', email: 'mainst@bakery.com', state:'CO'},
-      total: 230,
-      orderPlaced: new Date(2017,12,3),
-      orderFulfilled: new Date(2017,12,3)
-    },
-    {
-      id: 2, 
-      customer:{id:1, name:'Main St Bakery', email: 'mainst@bakery.com', state:'CO'},
-      total: 230,
-      orderPlaced: new Date(2017,12,3),
-      orderFulfilled: new Date(2017,12,3)
-    }
-  ];
+  constructor(private _salesData: SalesDataService) { }
 
-  constructor() { }
+  orders: Order[];
+  total = 0;
+  page = 1;
+  limit = 10;
+  loading = false;
 
   ngOnInit() {
+  }
+
+  getOrders(): void { 
+    this._salesData.getOrders(this.page, this.limit).subscribe(
+      res => {
+        this.orders = res['page']['data'];
+        this.total = res['page'].total;
+        this.loading = false;
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
+  goToPrevious(): void{
+    this.page--;
+    this.getOrders();
+  }
+
+  goToNext(): void{
+    this.page++;
+    this.getOrders();
+  }
+
+  goToPage(n: number): void{
+    this.page = n;
+    this.getOrders();
   }
 
 }
