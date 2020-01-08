@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let order of orders">
+            <tr class="RowsTable" *ngFor="let order of orders">
                 <td> {{ order.id }} </td>
                 <td> {{ order.customer.name }} </td>
                 <td> {{ order.total }} </td>
