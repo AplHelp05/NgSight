@@ -17,8 +17,6 @@ export class SectionSalesComponent implements OnInit {
     this._salesDataService.getOrdersByState().subscribe(
       res => {
         this.salesDataByState = res;
-        console.log("SalesDataByState", this.salesDataByState)
-
       },
       err => {
         console.log(err);
@@ -28,7 +26,6 @@ export class SectionSalesComponent implements OnInit {
     this._salesDataService.getOrdersByCustomer(5).subscribe(
       res => {
         this.salesDataByCustomer = res;
-        console.log("SalesDataByCustomer", this.salesDataByCustomer)
       },
       err => {
         console.log(err);
