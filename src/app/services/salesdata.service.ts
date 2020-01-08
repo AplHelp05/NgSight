@@ -8,6 +8,9 @@ import { catchError } from 'rxjs/operators';
 })
 export class SalesDataService {
   private _getOrders = "https://localhost:5001/api/order";
+  private _getOrderByCustomer = "https://localhost:5001/api/order/bycustomer";
+  private _getOrderByState = "https://localhost:5001/api/order/bystate";
+
 
   constructor(private _http: HttpClient) { }
   errorHandler(error: HttpErrorResponse){
@@ -21,8 +24,13 @@ export class SalesDataService {
     return this._http.get<any>(link).pipe(catchError(this.errorHandler));
   }
 
-  getAllOrders(){
-    return this._http.get<any>(this._getOrders).pipe(catchError(this.errorHandler));
+  getOrdersByCustomer(n: number){
+    var link = this._getOrderByCustomer+"/"+n
+    return this._http.get<any>(link).pipe(catchError(this.errorHandler));
+  }
+
+  getOrdersByState(){
+    return this._http.get<any>(this._getOrderByState).pipe(catchError(this.errorHandler));
   }
 
 }
