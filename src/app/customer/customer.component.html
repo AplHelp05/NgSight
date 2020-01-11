@@ -1,0 +1,60 @@
+<div class="row pt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card rounded-0">
+            <div class="card-header form-card-header">
+                <h3 class="mb-0"> Create a new customer </h3>
+            </div>
+            <div class="card-body">
+                <form class="form" #userForm="ngForm">
+                    <div class="form-group">
+                        <label class="label-form" for="">Id</label>
+                        <input class="form-control rounded-0" type="number" required
+                            [class.is-invalid]="id.touched && id.invalid" 
+                            name="id" #id="ngModel" [(ngModel)]="customerData.id"/>
+                        <small class="text-danger" [class.d-none]="id.valid || id.untouched">
+                            The identification is required
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-form" for="">Name</label>
+                        <input class="form-control rounded-0" type="text" required
+                            name="name" #name="ngModel" [(ngModel)]="customerData.name"
+                            [class.is-invalid]="name.touched && name.invalid"/>
+
+                        <small class="text-danger" [class.d-none]="name.valid || name.untouched">
+                            The name is required
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-form" for="">Email</label>
+                        <input class="form-control rounded-0" type="text" required 
+                            name="email" #email="ngModel" [(ngModel)]="customerData.email"
+                            [class.is-invalid]="email.touched && email.invalid"/>
+
+                        <small class="text-danger" [class.d-none]="email.valid || email.untouched">
+                            The email is required
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="label-form">States</label>
+                        <select class="custom-select" #state="ngModel" name="state" required
+                            [(ngModel)]="customerData.state" [class.is-invalid]="stateHasError && state.touched" 
+                            (blur)="validState(state.value)" (change)="validState(state.value)">
+                            <option value="default">Select one: </option>
+                            <option *ngFor="let state of states">{{ state }}</option>
+                        </select>
+                        <small class="text-danger" [class.d-none]="!stateHasError || state.untouched">Please Choose a State</small>
+                    </div>
+
+                    <button class="btn btn-success float-center" type="button"
+                        (click)="onCreateNewCustomer()">
+                      Submit 
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

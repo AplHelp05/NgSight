@@ -1,3 +1,5 @@
+
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +16,14 @@ import { ChartsModule } from 'ng2-charts';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
+//Services
+import { ServerService } from './services/server.service';
+import { SalesDataService } from './services/salesdata.service';
+import { CustomerService } from './services/customer-service.service';
+import { OrderService } from './services/order-service.service';
+//Component
+import { CustomerComponent } from './customer/customer.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -28,15 +38,23 @@ import { HttpClientModule } from '@angular/common/http';
     LineChartComponent,
     PieChartComponent,
     ServerComponent,
-    PaginationComponent
+    PaginationComponent,
+    CustomerComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    SalesDataService,
+    ServerService,
+    OrderService,
+    CustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

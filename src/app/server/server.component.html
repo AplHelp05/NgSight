@@ -3,9 +3,10 @@
         {{serverInput.name}}
     </div>
     <div class="card-body status">
-        {{serverInput.isOnline}}
+        {{ serverStatus }}
     </div>
-    <button class="btn btn-default action" (click)="toggleStatus(serverInput.isOnline)" [ngStyle]="{'backgroundColor':color}">
+    <button class="btn btn-default action" (click)="sendServerAction(serverInput.isOnline)" 
+        [ngStyle]="{'backgroundColor':color}">
         {{buttonText}}
     </button>
 </div>

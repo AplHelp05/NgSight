@@ -11,7 +11,6 @@ import * as moment from 'node_modules/moment';
 
 const LINE_CHART_LABEL: string[] = ['Jan','Feb','Mar','Apr','May','Jun'];*/
 
-
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
