@@ -24,6 +24,7 @@ import { OrderService } from './services/order-service.service';
 //Component
 import { CustomerComponent } from './customer/customer.component';
 import { OrderComponent } from './order/order.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { OrderComponent } from './order/order.component';
     ServerComponent,
     PaginationComponent,
     CustomerComponent,
-    OrderComponent
+    OrderComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,8 @@ import { catchError } from 'rxjs/operators';
 export class CustomerService {
 
   private _createCustomer = 'https://localhost:5001/api/customer/newCustomer';
+  private _getListCustomer = 'https://localhost:5001/api/customer';
+
 
   constructor(private _http: HttpClient) { }
 
@@ -22,8 +24,12 @@ export class CustomerService {
                   responseType: 'text' as 'json' };
 
   createNewCustomer(customer: Customer){
-    console.log(customer);
     return this._http.post<any>(this._createCustomer, customer, this.httpOptions).pipe(catchError(this.errorHandler));
+  }
+
+  getListCustomers(page: number, limit: number){
+    var url = this._getListCustomer+'/'+page+'/'+limit;
+    return this._http.get<any>(url).pipe(catchError(this.errorHandler));
   }
   
 }

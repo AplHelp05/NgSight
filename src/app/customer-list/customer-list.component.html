@@ -1,0 +1,30 @@
+<div class="section-container">
+    <h4>Latest Orders</h4>
+    <table class="table table-inverse table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="RowsTable" *ngFor="let customer of customers">
+                <td> {{ customer.id }} </td>
+                <td> {{ customer.name }} </td>
+                <td> {{ customer.email }} </td>
+                <td> {{ customer.state }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <app-pagination
+        (goPage)="goToPage($event)"
+        (goPrev)="goToPrevious()"
+        (goNext)="goToNext()"
+        [page]="page"
+        [perPage]="limit"
+        [count]="total">
+    </app-pagination>
+</div>

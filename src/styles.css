@@ -9,7 +9,7 @@ html{
 
 body{
     font-family: 'Source Sans Pro', sans-serif ;
-    background-color:  #004d4d;
+    background-color:  #0d417ccc;
     color: #f7fff7;
     height: 100%;
 }
@@ -32,7 +32,7 @@ a:hover{
 }
 
 .card-theme{
-    background-color: #191F26;
+    background-color: rgba(41, 68, 99, 0.925);
     border: none;
     border-radius: 2px;
 }
@@ -45,12 +45,13 @@ a:hover{
 }
 
 .card-body-theme{
-    background-color: #494f56;
+    background-color: #40566e;
 }
 
 .cards{
     display: flex;
     flex-direction: column;
+    text-decoration-color: whitesmoke;
 }
 
 .section-container{
